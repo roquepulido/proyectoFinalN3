@@ -1,0 +1,15 @@
+.left__panel {
+  background-color: #1e213a;
+}
+.right__panel {
+  background-color: #100e1d;
+}
+.img__clima {
+  background-image: url("./img/Cloud-background.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
