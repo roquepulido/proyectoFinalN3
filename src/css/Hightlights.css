@@ -1,0 +1,24 @@
+.hightlights__card{
+    width: 328px;
+    height: 204px;
+    background-color: rgba(30, 33, 58, 1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1rem;
+
+}
+.number{
+    font-size: 64px;
+    font-weight: 700;
+}
+.unit{
+    margin-left: 0.5rem;
+    font-size: 36px;
+    font-weight: 400;
+}
+.hightlights__title{
+    font-size: 24px;
+    font-weight: 700;
+}

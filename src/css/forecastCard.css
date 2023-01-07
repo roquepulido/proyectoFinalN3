@@ -1,0 +1,14 @@
+.forecast__card {
+  width: 120px;
+  height: 177px;
+  background-color: rgba(30, 33, 58, 1);
+  font-size: 16px;
+  color:rgba(231, 231, 235, 1);
+}
+.forecast__card .min__card{
+    color:rgba(160, 159, 177, 1);
+}
+
+.forecast__img img{
+    width: 100%;
+}
