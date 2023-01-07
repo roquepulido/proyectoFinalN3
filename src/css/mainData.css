@@ -1,0 +1,18 @@
+.main__data {
+  color: rgba(136, 134, 157, 1);
+}
+.temp__main {
+  font-size: 3rem;
+}
+.temp__main .texto__claro {
+  font-size: 9rem;
+}
+.weather__main{
+  font-size: 2.25rem;
+}
+.date__main{
+  font-size: 1.125rem;
+}
+.place_main{
+  font-size: 1.125rem;
+}
