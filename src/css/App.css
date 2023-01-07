@@ -23,6 +23,5 @@ min-width: 330px;
 .texto__claro {
   color: rgba(231, 231, 235, 1) !important;
 }
-.forecast_container{
-  max-width: 700px;
-}
+/* .forecast_container{
+} */

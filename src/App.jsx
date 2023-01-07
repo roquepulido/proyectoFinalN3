@@ -5,7 +5,7 @@ import SearchMenu from "./components/SearchMenu";
 import PrincipalWidget from "./components/PrincipalWidget";
 import ForecastFiveDay from "./components/ForecastFiveDay";
 import Hightlights from "./components/Hightlights";
-
+import UnitSwitch from "./components/UnitSwitch";
 
 function App() {
   return (
@@ -16,15 +16,14 @@ function App() {
         <PrincipalWidget />
       </div>
       <div className="right__panel col vh-100">
-        <div className="forecast_container border border-5 mx-auto">
-        <ForecastFiveDay />
-        <Hightlights />
-
+        <div className="forecast_container container mx-auto w-100 h-100">
+          <UnitSwitch />
+          <ForecastFiveDay />
+          <Hightlights />
+          <footer className="w-100 text-center">
+            created by <b>roque.pulido</b> - devChallenges.io
+          </footer>
         </div>
-        <footer className="w-100 d-flex justify-content-center my-4">
-          created by <span className="fw-bold mx-1">roque.pulido</span> -
-          devChallenges.io
-        </footer>
       </div>
     </div>
   );
