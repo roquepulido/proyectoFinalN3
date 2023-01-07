@@ -2,7 +2,7 @@ import React from "react";
 
 function UnitSwitch() {
   return (
-    <div className="form-check form-switch">
+    <div className="form-check form-switch py-3">
       <input
         className="form-check-input"
         type="checkbox"

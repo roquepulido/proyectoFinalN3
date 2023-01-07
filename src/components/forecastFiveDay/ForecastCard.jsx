@@ -3,8 +3,8 @@ import "../../css/forecastCard.css";
 
 function ForecastCard({ day, max, min, forecast, unit }) {
   return (
-    <div className="col d-flex justify-content-center mt-4">
-      <div className="forecast__card d-flex flex-column justify-content-evenly">
+    <div className="col d-flex justify-content-center">
+      <div className="forecast__card d-flex flex-column justify-content-between pt-2 pb-1">
         <span className="text-center">{day}</span>
         <div className="forecast__img w-100 pe-3">
           <img className="" src={`./img/${forecast}.png`} alt="" />

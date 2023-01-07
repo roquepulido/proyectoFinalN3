@@ -4,7 +4,7 @@ import "../css/Hightlights.css";
 
 function Hightlights() {
   return (
-    <div className="container Hightlights mt-5">
+    <div className="container Hightlights pt-2 pt-md-5">
       <span className="hightlights__title ms-4">Today’s Hightlights</span>
       <div className=" hightlights__cards container">
         <div className="row m-auto row-cols-1 row-cols-sm-2 g-xl-5 g-md-2">
@@ -38,7 +38,7 @@ function Hightlights() {
               <span>Visibility</span>
               <div className="visibility">
                 <span className="number">6,4</span>
-                <span className="unit">miles</span>
+                <span className="unit">mi</span>
               </div>
             </div>
           </div>
