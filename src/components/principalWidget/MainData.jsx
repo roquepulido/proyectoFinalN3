@@ -12,7 +12,7 @@ function MainData({ temp, weather, place, date, unit }) {
       <div className="date__main mb-3">
         <span>Today - {date}</span>
       </div>
-      <div className="place_main d-flex gap-2 align-items-center">
+      <div className="place_main d-flex gap-2 pb-4 align-items-center">
         <span className="material-symbols-outlined">location_on</span> {place}
       </div>
     </div>

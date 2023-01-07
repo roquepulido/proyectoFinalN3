@@ -5,6 +5,9 @@ body {
   font-size: 16px;
   color: rgba(231, 231, 235, 1) !important ;
 }
+.App{
+min-width: 330px;
+}
 .left__panel {
   min-width: 330px;
   min-height: 100vh;

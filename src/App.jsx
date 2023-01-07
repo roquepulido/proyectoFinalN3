@@ -7,7 +7,8 @@ import PrincipalWidget from "./components/PrincipalWidget";
 function App() {
   return (
     <div className="App d-flex flex-column flex-sm-row">
-      <div className="left__panel col">
+      <div className="left__panel col d-flex flex-column justify-content-between overflow-hidden">
+      {/* div className="principal__widget  d-flex justify-content-evenly" */}
         <SearchMenu />
         <PrincipalWidget />
       </div>
