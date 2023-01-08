@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Cancun",
+    "local_names": {
+      "es": "Cancún",
+      "mk": "Канкун",
+      "ru": "Канкун",
+      "ascii": "Cancun",
+      "feature_name": "Cancun",
+      "ar": "كانكون",
+      "en": "Cancun"
+    },
+    "lat": 21.1617854,
+    "lon": -86.8510468,
+    "country": "MX",
+    "state": "Quintana Roo"
+  }
+]

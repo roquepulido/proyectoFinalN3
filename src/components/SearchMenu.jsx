@@ -1,6 +1,32 @@
 import "../css/searchMenu.css";
+//Falta poner funcion de busqueda
+function SearchMenu({ handleChangeCity }) {
+  const getLocation = () => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    const success = async (pos) => {
+      const { latitude, longitude, accuracy } = pos.coords;
 
-function SearchMenu() {
+      console.log("Tu ubicación actual es:");
+      console.log(`Latitud : ${latitude}`);
+      console.log(`Longitud: ${longitude}`);
+      console.log(`Más o menos ${accuracy} metros.`);
+      const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${
+        import.meta.env.VITE_API_WEATHER_KEY
+      }`;
+      const res = await fetch(url).then((ans) => ans.json());
+      handleChangeCity(res[0].name);
+    };
+    const error = (err) => {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  };
+
   return (
     <>
       <div className="container__buttons d-flex justify-content-between p-3">
@@ -13,7 +39,7 @@ function SearchMenu() {
         >
           <span className="texto__claro">Seach for places</span>
         </button>
-        <button className="button__localitation">
+        <button className="button__localitation" onClick={getLocation}>
           <span className="material-symbols-outlined">my_location</span>
         </button>
       </div>
@@ -46,9 +72,33 @@ function SearchMenu() {
             </button>
           </div>
 
-          <button className="button__pais texto__claro">M&eacute;xico</button>
-          <button className="button__pais texto__claro">Lima</button>
-          <button className="button__pais texto__claro">Guatemala</button>
+          <button
+            className="button__pais texto__claro"
+            onClick={() => {
+              handleChangeCity("CDMX");
+            }}
+            data-bs-dismiss="offcanvas"
+          >
+            Ciudad de M&eacute;xico
+          </button>
+          <button
+            className="button__pais texto__claro"
+            onClick={() => {
+              handleChangeCity("Lima");
+            }}
+            data-bs-dismiss="offcanvas"
+          >
+            Lima
+          </button>
+          <button
+            className="button__pais texto__claro"
+            onClick={() => {
+              handleChangeCity("Guatemala");
+            }}
+            data-bs-dismiss="offcanvas"
+          >
+            Guatemala
+          </button>
         </div>
       </div>
     </>
