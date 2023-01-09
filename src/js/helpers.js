@@ -31,3 +31,22 @@ export function wdToLetters(deg) {
 
   if (deg > 326 && deg <= 348) return "NNW";
 }
+
+export function getUrlWeather(weather) {
+  switch (weather) {
+    case "Clouds":
+      return "./img/HeavyCloud.png";
+    case "Clear":
+      return "./img/Clear.png";
+    case "Snow":
+      return "./img/Snow.png";
+    case "Rain":
+      return "./img/.png";
+    case "Drizzle":
+      return "./img/.png";
+    case "Thunderstorm":
+      return "./img/.png";
+    case "Clouds":
+      return "./img/.png";
+  }
+}
