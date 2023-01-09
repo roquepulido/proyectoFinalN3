@@ -75,7 +75,7 @@ function SearchMenu({ handleChangeCity }) {
           <button
             className="button__pais texto__claro"
             onClick={() => {
-              handleChangeCity("CDMX");
+              handleChangeCity("Mexico,MX");
             }}
             data-bs-dismiss="offcanvas"
           >
@@ -84,7 +84,7 @@ function SearchMenu({ handleChangeCity }) {
           <button
             className="button__pais texto__claro"
             onClick={() => {
-              handleChangeCity("Lima");
+              handleChangeCity("Lima,PE");
             }}
             data-bs-dismiss="offcanvas"
           >
@@ -93,7 +93,7 @@ function SearchMenu({ handleChangeCity }) {
           <button
             className="button__pais texto__claro"
             onClick={() => {
-              handleChangeCity("Guatemala");
+              handleChangeCity("Guatemala,GT");
             }}
             data-bs-dismiss="offcanvas"
           >

@@ -4,10 +4,13 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import SearchMenu from "./components/SearchMenu";
 import PrincipalWidget from "./components/PrincipalWidget";
 import ForecastFiveDay from "./components/ForecastFiveDay";
+import ForecastFiveDayBlank from "./components/ForecastFiveDayBlank";
+import PrincipalWidgetBlank from "./components/PrincipalWidgetBlank";
 import Hightlights from "./components/Hightlights";
 import UnitSwitch from "./components/UnitSwitch";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
+import HightlightsBlank from "./components/HightlightsBlank";
 
 function App() {
   const [city, setCity] = useState("London");
@@ -65,10 +68,10 @@ function App() {
   return (
     <div className="App overflow-hidden">
       <div className="row">
-        <div className="left__panel col-12 col-md-5 d-flex flex-column justify-content-between overflow-hidden">
+        <div className="left__panel position-relative col-12 col-md-5 d-flex flex-column justify-content-between overflow-hidden">
           <SearchMenu handleChangeCity={handleChangeCity} />
           {loadingWeather ? (
-            <h1>Loading...</h1>
+            <PrincipalWidgetBlank />
           ) : (
             <PrincipalWidget city={city} weather={weather} unit={unit} />
           )}
@@ -77,13 +80,13 @@ function App() {
           <div className="forecast_container container mx-auto w-100 h-100">
             <UnitSwitch handleChangeUnit={handleChangeUnit} />
             {loadingForecast ? (
-              <h1>Loading...</h1>
+              <ForecastFiveDayBlank />
             ) : (
-              <ForecastFiveDay forecast={forecast} />
+              <ForecastFiveDay forecast={forecast} unit={unit} />
             )}
 
             {loadingWeather ? (
-              <h1>Loading...</h1>
+              <HightlightsBlank />
             ) : (
               <Hightlights weather={weather} unit={unit} />
             )}

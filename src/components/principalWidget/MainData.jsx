@@ -5,10 +5,10 @@ function MainData({ temp, weather, place, date, unit }) {
   return (
     <div className="main__data d-flex flex-column align-items-center">
       <div className="temp__main">
-        <span className="texto__claro">{temp}</span>
+        <span className="texto__claro">{temp.toFixed(1)}</span>
         <span>&deg;{unit}</span>
       </div>
-      <span className="weather__main mb-3">{weather}</span>
+      <span className="weather__main mb-3">{weather.main}</span>
       <div className="date__main mb-3">
         <span>Today - {date}</span>
       </div>

@@ -53,8 +53,8 @@ function Hightlights({ unit, weather }) {
               <div className="visibility">
                 <span className="number">
                   {unit === "metric"
-                    ? (weather.visibility / 1000).toFixed(2)
-                    : (weather.visibility / 1609).toFixed(2)}
+                    ? (weather.visibility / 1000).toFixed(1)
+                    : (weather.visibility / 1609).toFixed(1)}
                 </span>
                 <span className="unit">{unit === "metric" ? "km" : "mi"}</span>
               </div>
