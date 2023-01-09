@@ -6,7 +6,7 @@ function MainData({ temp, weather, place, date, unit }) {
     <div className="main__data d-flex flex-column align-items-center">
       <div className="temp__main">
         <span className="texto__claro">{temp}</span>
-        <span>°{unit}</span>
+        <span>&deg;{unit}</span>
       </div>
       <span className="weather__main mb-3">{weather}</span>
       <div className="date__main mb-3">

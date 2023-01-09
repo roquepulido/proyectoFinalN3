@@ -1,8 +1,9 @@
 import React from "react";
 import { ProgressBar } from "react-bootstrap";
 import "../css/Hightlights.css";
+import { wdToLetters } from "../js/helpers";
 
-function Hightlights() {
+function Hightlights({ unit, weather }) {
   return (
     <div className="container Hightlights pt-2 pt-md-5">
       <span className="hightlights__title ms-4">Today’s Hightlights</span>
@@ -12,12 +13,21 @@ function Hightlights() {
             <div className="hightlights__card my-2">
               <span>Wind status</span>
               <div className="speed">
-                <span className="number">7</span>
-                <span className="unit">mph</span>
+                <span className="number">{weather.wind.speed}</span>
+                <span className="unit">
+                  {unit === "metric" ? "m/s" : "mph"}
+                </span>
               </div>
               <div className="d-flex justify-content-center align-items-center gap-2">
-                <span className="material-symbols-outlined">arrow_upward</span>
-                <span className="wind__direction">WSW</span>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ transform: `rotate(${weather.wind.deg}deg)` }}
+                >
+                  arrow_upward
+                </span>
+                <span className="wind__direction">
+                  {wdToLetters(weather.wind.deg)}
+                </span>
               </div>
             </div>
           </div>
@@ -25,11 +35,15 @@ function Hightlights() {
             <div className="hightlights__card my-2">
               <span>Humidity</span>
               <div className="Humidity">
-                <span className="number">84</span>
+                <span className="number">{weather.main.humidity}</span>
                 <span className="unit">%</span>
               </div>
               <div className="w-75 mx-auto">
-                <ProgressBar variant="warning" now={84} label={`${84}%`} />
+                <ProgressBar
+                  variant="warning"
+                  now={weather.main.humidity}
+                  label={`${weather.main.humidity}%`}
+                />
               </div>
             </div>
           </div>
@@ -37,8 +51,12 @@ function Hightlights() {
             <div className="hightlights__card my-2">
               <span>Visibility</span>
               <div className="visibility">
-                <span className="number">6,4</span>
-                <span className="unit">mi</span>
+                <span className="number">
+                  {unit === "metric"
+                    ? (weather.visibility / 1000).toFixed(2)
+                    : (weather.visibility / 1609).toFixed(2)}
+                </span>
+                <span className="unit">{unit === "metric" ? "km" : "mi"}</span>
               </div>
             </div>
           </div>
@@ -46,8 +64,8 @@ function Hightlights() {
             <div className="hightlights__card my-2">
               <span>Air Pressure</span>
               <div className="airPressure">
-                <span className="number">998</span>
-                <span className="unit">mb</span>
+                <span className="number">{weather.main.pressure}</span>
+                <span className="unit">hPa</span>
               </div>
             </div>
           </div>

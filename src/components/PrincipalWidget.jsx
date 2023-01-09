@@ -3,22 +3,21 @@ import MainData from "./principalWidget/MainData";
 import MainStatus from "./principalWidget/MainStatus";
 import "../css/principalWidget.css";
 
-function PrincipalWidget({ city }) {
+function PrincipalWidget({ city, weather, unit }) {
   const todayDate = new Date();
 
   return (
     <>
-      <MainStatus />
+      <MainStatus weather={weather.weather[0].main} />
       <MainData
-        temp="15"
-        weather="Shower"
+        temp={weather.main.temp}
+        weather={weather.weather[0].main}
         place={city}
         date={todayDate.toDateString()}
-        unit="C"
+        unit={unit === "metric" ? "C" : "F"}
       />
     </>
   );
 }
 
 export default PrincipalWidget;
-// div className="principal__widget  d-flex justify-content-evenly"
