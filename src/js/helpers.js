@@ -92,8 +92,8 @@ export function getUrlWeather(weather) {
       return "./img/Hail.png";
     case 621:
     case 622:
-    // default:
-    //   return "./img/LightCloud.png";
+    default:
+      return "./img/LightCloud.png";
   }
 }
 

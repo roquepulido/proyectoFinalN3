@@ -24,7 +24,9 @@ function CityOptionsError({ city }) {
 }
 
 function SearchMenu({ handleChangeCity }) {
-  const [ansBusqueda, setAnsBusqueda] = useState([]);
+  const [ansBusqueda, setAnsBusqueda] = useState([
+    { name: "Cancun", country: "MX" },
+  ]);
   const [cityQuery, setCityQuery] = useState("");
   const [cityIsLoading, setCityIsLoading] = useState(false);
 
