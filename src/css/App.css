@@ -5,22 +5,15 @@ body {
   font-size: 16px;
   color: rgba(231, 231, 235, 1) !important ;
 }
-/* .App{
-min-width: 330px;
-} */
+
 .left__panel {
-  /* min-width: 330px; */
   min-height: 100vh;
-  /* max-width: 575px; */
+
   background-color: rgba(30, 33, 58, 1);
-  
 }
 .right__panel {
-  
-  /* min-width: 330px; */
   background-color: #100e1d;
 }
 .texto__claro {
   color: rgba(231, 231, 235, 1) !important;
 }
-

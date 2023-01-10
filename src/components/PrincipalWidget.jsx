@@ -1,7 +1,6 @@
 import React from "react";
 import MainData from "./principalWidget/MainData";
 import MainStatus from "./principalWidget/MainStatus";
-import "../css/principalWidget.css";
 
 function PrincipalWidget({ city, weather, unit }) {
   const todayDate = new Date();
