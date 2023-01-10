@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/principalWidget.css";
 
 function PrincipalWidgetBlank({ city, weather, unit }) {
   const todayDate = new Date();

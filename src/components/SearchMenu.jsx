@@ -15,6 +15,13 @@ function CityOptions({ city, handleChangeCity }) {
     </button>
   );
 }
+function CityOptionsError({ city }) {
+  return (
+    <button className="button__pais texto__claro">
+      {`No info for "${city.toUpperCase()}"`}
+    </button>
+  );
+}
 
 function SearchMenu({ handleChangeCity }) {
   const [ansBusqueda, setAnsBusqueda] = useState([]);
@@ -34,7 +41,7 @@ function SearchMenu({ handleChangeCity }) {
       console.log(`Latitud : ${latitude}`);
       console.log(`Longitud: ${longitude}`);
       console.log(`Más o menos ${accuracy} metros.`);
-      const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${
+      const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${
         import.meta.env.VITE_API_WEATHER_KEY
       }`;
       const res = await fetch(url).then((ans) => ans.json());
@@ -52,7 +59,7 @@ function SearchMenu({ handleChangeCity }) {
   };
   const searchCity = async (e) => {
     setCityIsLoading(true);
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityQuery}&limit=5&appid=${
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityQuery}&limit=5&appid=${
       import.meta.env.VITE_API_WEATHER_KEY
     }`;
     const res = await fetch(url).then((ans) => ans.json());
@@ -116,13 +123,17 @@ function SearchMenu({ handleChangeCity }) {
             )}
           </div>
 
-          {ansBusqueda.map((city, i) => (
-            <CityOptions
-              key={i}
-              city={city}
-              handleChangeCity={handleChangeCity}
-            />
-          ))}
+          {ansBusqueda.length != 0 ? (
+            ansBusqueda.map((city, i) => (
+              <CityOptions
+                key={i}
+                city={city}
+                handleChangeCity={handleChangeCity}
+              />
+            ))
+          ) : (
+            <CityOptionsError city={cityQuery} />
+          )}
         </div>
       </div>
     </>

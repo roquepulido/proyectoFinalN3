@@ -1,6 +1,6 @@
 .img__bgClima {
   border-radius: 3rem;
-  background-image: url("./img/Cloud-background.png");
+  background-image: url("../img/Cloud-background.png");
   animation: mov 10s linear infinite;
 }
 .img__bgClima img {
