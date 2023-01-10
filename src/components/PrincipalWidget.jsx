@@ -12,7 +12,7 @@ function PrincipalWidget({ city, weather, unit }) {
       <MainData
         temp={weather.main.temp}
         weather={weather.weather[0]}
-        place={city}
+        city={city}
         date={todayDate.toDateString()}
         unit={unit === "metric" ? "C" : "F"}
       />

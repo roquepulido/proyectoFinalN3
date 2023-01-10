@@ -1,7 +1,8 @@
 import React from "react";
 import "../../css/mainData.css";
+import { isoToCountry } from "../../js/helpers";
 
-function MainData({ temp, weather, place, date, unit }) {
+function MainData({ temp, weather, city, date, unit }) {
   return (
     <div className="main__data d-flex flex-column align-items-center">
       <div className="temp__main">
@@ -13,7 +14,8 @@ function MainData({ temp, weather, place, date, unit }) {
         <span>Today - {date}</span>
       </div>
       <div className="place_main d-flex gap-2 pb-4 align-items-center">
-        <span className="material-symbols-outlined">location_on</span> {place}
+        <span className="material-symbols-outlined">location_on</span>
+        {city.name} - {isoToCountry(city.country)}
       </div>
     </div>
   );

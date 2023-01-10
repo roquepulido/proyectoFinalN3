@@ -1,6 +1,26 @@
+import { useState } from "react";
 import "../css/searchMenu.css";
-//Falta poner funcion de busqueda
+import { isoToCountry } from "../js/helpers";
+
+function CityOptions({ city, handleChangeCity }) {
+  return (
+    <button
+      className="button__pais texto__claro"
+      onClick={() => {
+        handleChangeCity(city);
+      }}
+      data-bs-dismiss="offcanvas"
+    >
+      {`${city.name}, ${isoToCountry(city.country)}`}
+    </button>
+  );
+}
+
 function SearchMenu({ handleChangeCity }) {
+  const [ansBusqueda, setAnsBusqueda] = useState([]);
+  const [cityQuery, setCityQuery] = useState("");
+  const [cityIsLoading, setCityIsLoading] = useState(false);
+
   const getLocation = () => {
     const options = {
       enableHighAccuracy: true,
@@ -18,7 +38,7 @@ function SearchMenu({ handleChangeCity }) {
         import.meta.env.VITE_API_WEATHER_KEY
       }`;
       const res = await fetch(url).then((ans) => ans.json());
-      handleChangeCity(res[0].name);
+      handleChangeCity(res[0]);
     };
     const error = (err) => {
       console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -27,6 +47,18 @@ function SearchMenu({ handleChangeCity }) {
     navigator.geolocation.getCurrentPosition(success, error, options);
   };
 
+  const handleChangeCountryQuery = (e) => {
+    setCityQuery(e.target.value);
+  };
+  const searchCity = async (e) => {
+    setCityIsLoading(true);
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityQuery}&limit=5&appid=${
+      import.meta.env.VITE_API_WEATHER_KEY
+    }`;
+    const res = await fetch(url).then((ans) => ans.json());
+    setAnsBusqueda(res);
+    setCityIsLoading(false);
+  };
   return (
     <>
       <div className="container__buttons d-flex justify-content-between p-3">
@@ -66,39 +98,31 @@ function SearchMenu({ handleChangeCity }) {
               type="search"
               placeholder="search location"
               aria-label="Search"
+              onChange={handleChangeCountryQuery}
             />
-            <button className="col" type="">
-              Search
-            </button>
+
+            {cityIsLoading ? (
+              <button className="col" type="button" disabled>
+                <span
+                  className="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            ) : (
+              <button className="col" onClick={searchCity}>
+                Search
+              </button>
+            )}
           </div>
 
-          <button
-            className="button__pais texto__claro"
-            onClick={() => {
-              handleChangeCity("Mexico,MX");
-            }}
-            data-bs-dismiss="offcanvas"
-          >
-            Ciudad de M&eacute;xico
-          </button>
-          <button
-            className="button__pais texto__claro"
-            onClick={() => {
-              handleChangeCity("Lima,PE");
-            }}
-            data-bs-dismiss="offcanvas"
-          >
-            Lima
-          </button>
-          <button
-            className="button__pais texto__claro"
-            onClick={() => {
-              handleChangeCity("Guatemala,GT");
-            }}
-            data-bs-dismiss="offcanvas"
-          >
-            Guatemala
-          </button>
+          {ansBusqueda.map((city, i) => (
+            <CityOptions
+              key={i}
+              city={city}
+              handleChangeCity={handleChangeCity}
+            />
+          ))}
         </div>
       </div>
     </>

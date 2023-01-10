@@ -11,6 +11,7 @@ function MainStatus({ weather }) {
 
   return (
     <div className="img__clima d-flex justify-content-center align-items-center position-relative w-100 ">
+      <div className="img__bgClima"></div>
       <img
         className="img__bgClima "
         src="./img/Cloud-background.png"

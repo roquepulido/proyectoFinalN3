@@ -13,7 +13,14 @@ import { useState, useEffect } from "react";
 import HightlightsBlank from "./components/HightlightsBlank";
 
 function App() {
-  const [city, setCity] = useState("London");
+  const baseCity = {
+    name: "Cancun",
+    lat: 21.1617854,
+    lon: -86.8510468,
+    country: "MX",
+    state: "Quintana Roo",
+  };
+  const [city, setCity] = useState(baseCity);
   const [unit, setUnit] = useState("metric");
   const [forecast, setForecast] = useState([]);
   const [weather, setWeather] = useState([]);
@@ -27,9 +34,13 @@ function App() {
   const handleChangeCity = (newCity) => {
     setCity(newCity);
   };
+
   const getWeather = async () => {
     setLoadingWeather(true);
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${
+      city.lat
+    }&lon=${city.lon}&units=${unit}&appid=${
       import.meta.env.VITE_API_WEATHER_KEY
     }`;
     const res = await fetch(url);
@@ -41,7 +52,9 @@ function App() {
 
   const getForecast = async () => {
     setLoadingForecast(true);
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${
+      city.lat
+    }&lon=${city.lon}&units=${unit}&appid=${
       import.meta.env.VITE_API_WEATHER_KEY
     }`;
     const res = await fetch(url);
@@ -53,7 +66,7 @@ function App() {
 
   //USEEFECT de prueva de cambio de states
   useEffect(() => {
-    console.log(`Change City to ${city}`);
+    console.log(`Change City to ${city.name}`);
   }, [city]);
   useEffect(() => {
     console.log(`You now are using the ${unit} System`);

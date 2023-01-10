@@ -3,11 +3,17 @@
   position: absolute;
   width: 140%;
   z-index: 0;
-  
+
   /* animation: mov 50s linear infinite; */
 }
 @keyframes mov {
-  0%{left: -100px;}
-  50%{left:80px;}
-  100%{left:-100px}
+  0% {
+    left: -100px;
+  }
+  50% {
+    left: 80px;
+  }
+  100% {
+    left: -100px;
+  }
 }
