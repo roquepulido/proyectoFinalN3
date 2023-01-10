@@ -1,19 +1,18 @@
 .img__bgClima {
-  opacity: 0.2;
-  position: absolute;
-  width: 140%;
-  z-index: 0;
-
-  /* animation: mov 50s linear infinite; */
+  border-radius: 3rem;
+  background-image: url("./img/Cloud-background.png");
+  animation: mov 10s linear infinite;
 }
+.img__bgClima img {
+  display: block;
+  margin: auto auto;
+}
+
 @keyframes mov {
   0% {
-    left: -100px;
-  }
-  50% {
-    left: 80px;
+    background-position: 0% 60%;
   }
   100% {
-    left: -100px;
+    background-position: 684px 60%;
   }
 }

@@ -10,14 +10,10 @@ function MainStatus({ weather }) {
   }, [weather]);
 
   return (
-    <div className="img__clima d-flex justify-content-center align-items-center position-relative w-100 ">
-      <div className="img__bgClima"></div>
-      <img
-        className="img__bgClima "
-        src="./img/Cloud-background.png"
-        alt="background Image"
-      />
-      <img style={{ zIndex: "2" }} src={imgWeather} alt={weather.main} />
+    <div className="img__clima">
+      <div className="img__bgClima">
+        <img src={imgWeather} alt={weather.main} />
+      </div>
     </div>
   );
 }
